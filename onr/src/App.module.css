@@ -28,19 +28,22 @@
 }
 
 .bigcontainer {
-    
     padding-top: 0.5%;
     padding-bottom: 0.5%;
 }
 
 .table1 {
-    text-align: left;
-  
+    text-align:justify;
+    justify-content: center;
+    display:flexbox;
+    margin-left:25%;
     padding-top: 5%;
+    padding-bottom: 5%;
+    
 }
 
 .gauge {
-    background-color: aqua;
+    
 }
 
 .line{
