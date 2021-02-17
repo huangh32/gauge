@@ -1,0 +1,53 @@
+.container{
+    justify-content: center;
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+   
+
+}
+
+
+.header {
+    font-size: 30px;
+    text-align: center;
+    
+}
+
+.header2 {
+    font-size: 30px;
+    text-align: center;
+    background-color:lightgrey;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+.smallcontainer {
+    text-align: center;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+.bigcontainer {
+    
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+.table1 {
+    text-align: left;
+  
+    padding-top: 5%;
+}
+
+.gauge {
+    background-color: aqua;
+}
+
+.line{
+    background-color: coral;
+}
+
+.card {
+    display: 'flex';
+   
+}
