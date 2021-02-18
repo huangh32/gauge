@@ -42,9 +42,6 @@ function App() {
 
       <Grid container className={styles.container}>
         <Grid item xs={3} className={styles.gauge}>
-        {/* <Grid spacing={3} justify='center'>
-          <PostData />
-        </Grid> */}
          <PostData />
         </Grid>
 
