@@ -1,14 +1,22 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import {Grid, Typography, Button, Box, Card, CardContent, GridList,GridListTile,GridListTileBar} from '@material-ui/core';
 import LanguageIcon from '@material-ui/icons/Language';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import styles from './App.module.css';
 import InfoIcon from '@material-ui/icons/Info';
 import PostData from './PostData';
-
+import Linechart from'./Linechart';
+import Data from './data.json';
+import * as d3 from "d3";
 
 function App() {
+  const [areadata,setData] = useState(Data.areaData);
+  const [gaugeData, setgaugeData] = useState(Data.gaugeData);
+
+ 
+
+
   return (
     <div className="App">
       <Grid container className={styles.container}>
@@ -42,12 +50,12 @@ function App() {
 
       <Grid container className={styles.container}>
         <Grid item xs={3} className={styles.gauge}>
-         <PostData />
+         <PostData data={gaugeData}/>
         </Grid>
 
 
         <Grid item xs={12} sm={7} className={styles.line}>
-          Line Chart
+          <Linechart data={areadata}/>
         </Grid>
 
 
@@ -57,3 +65,14 @@ function App() {
 }
 
 export default App;
+  // useEffect(() => {
+  //   regenerateData();
+  // }, []);
+
+  // function regenerateData() {
+  //   const scoreData = areadata;
+    
+
+  //   }
+  //   setData(scoreData)
+  // }

@@ -5,26 +5,51 @@ import styles from './PostData.module.css';
 // import * as d3 from "d3";
 import GaugeChart from 'react-gauge-chart'
 
-class PostData extends Component {
+
+
+// export function savefunction (name) {
+//     let target = name;
+//     console.log('savefunction: ', target);
+// }
+
+class PostData extends React.Component {
     constructor(props) {
         super(props);
         this.ref = createRef();
     
         this.state = {
-            data:{
-                gaugeData:Data.gaugeData,
-                areaData:Data.areaData
-            }
+            data: this.props.data,
+            name:'',
+            score:''
         };
+
+        
+        // this.handleChange = this.handleChange.bind(this);
+
     }
+
+    handleChange (newName) {
+        console.log('handleChange: ', newName);
+        console.log('handle props: ', this);
+         this.setState({name: newName});
+        
+    }
+
+    
+
     render(){
-        console.log('GaugeData is: ',this.state.data.gaugeData);
-        console.log('areaData is: ', this.state.data.areaData);
+        console.log('GaugeData is: ',this.state.data);
+        console.log('render',this);
+        console.log('name: ',this.state.name);
+        const that = this;//remind Not for function scope
         return (
         <Grid container spacing ={1}>
-        {this.state.data.gaugeData.map(function(item, index) {
+        {this.state.data.map(function(item, index) {
             return <Grid  item xs={4} spacing={3}>
-                <Card>
+                   <Card key = {index} onClick={
+                    //    that.handleChange.bind(this,item.name)
+                    (event) => that.handleChange(item.name, event)
+                   }>
                 <CardContent>
                     <Typography color='primary' variant='h7' component='h6' gutterBottom>
                         {item.name}
@@ -41,10 +66,10 @@ class PostData extends Component {
                     </Typography>
                 </CardContent>
                 </Card>
-            </Grid>
-            
+            </Grid>   
         })
         }
+        {/* <button onClick={this.change}>Transform</button> */}
         </Grid>
         
         )
@@ -68,3 +93,11 @@ export default PostData;
                 </CardContent>
                 </Card>
                 </Grid> */}
+
+
+
+
+                // <Card key = {index} onClick={e=>
+                //     {
+                //     console.log('change: ', item.name)}
+                //     } >
