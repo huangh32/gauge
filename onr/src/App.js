@@ -13,11 +13,20 @@ import * as d3 from "d3";
 function App() {
   const [areadata,setData] = useState(Data.areaData);
   const [gaugeData, setgaugeData] = useState(Data.gaugeData);
+  const [name,setName] = useState('');
+ 
+  function handleName(name){
+    setName(
+     {name}
+    )
+    console.log('in APP new Name is: ', name);
+  };
 
  
 
 
   return (
+    
     <div className="App">
       <Grid container className={styles.container}>
        
@@ -50,12 +59,12 @@ function App() {
 
       <Grid container className={styles.container}>
         <Grid item xs={3} className={styles.gauge}>
-         <PostData data={gaugeData}/>
+         <PostData data={gaugeData} name={name} onNameChange={handleName}/>
         </Grid>
 
 
         <Grid item xs={12} sm={7} className={styles.line}>
-          <Linechart data={areadata}/>
+          <Linechart data={areadata}  name={name} width={400} height={300} />
         </Grid>
 
 

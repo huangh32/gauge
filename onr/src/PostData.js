@@ -19,7 +19,7 @@ class PostData extends React.Component {
     
         this.state = {
             data: this.props.data,
-            name:'',
+            name:this.props.name,
             score:''
         };
 
@@ -29,9 +29,10 @@ class PostData extends React.Component {
     }
 
     handleChange (newName) {
-        console.log('handleChange: ', newName);
+        console.log('handleChange Name: ', newName);
         console.log('handle props: ', this);
          this.setState({name: newName});
+        this.props.onNameChange({name:newName});
         
     }
 
