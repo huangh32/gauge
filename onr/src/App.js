@@ -65,9 +65,9 @@ function App() {
 
 
         <Grid item xs={12} sm={7} className={styles.line}>
-          {/* <svg ref={svgRef}> */}
+          
           <Linechart data={areadata}  name={name}  />
-          {/* </svg> */}
+          
         </Grid>
 
 

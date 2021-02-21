@@ -11,9 +11,9 @@ function Linechart(props) {
     
 
       const{data, name} = props;
-      console.log('linechart:',data);
+  
       let name_string = name?name.name.name:'';
-      console.log('namestring: ',name_string);
+   
 
       const [dataChart, setdataChart] = useState({
         labels:['Apr','May','June','July'],
@@ -26,8 +26,7 @@ function Linechart(props) {
     });
        
 
-    console.log('old: ',dataChart);
-
+    
        let sample = [];
        let xLabel = [];
 
@@ -43,22 +42,22 @@ function Linechart(props) {
             })}
         })
 
-        console.log('new: ', sample);
+        
     
-       
 
     useEffect(()=>{
-        console.log('useEffect')
-            setdataChart({
-                labels:xLabel,
-                datasets:[
-                    {    
-                        label:'score',
-                        data:sample
-                    }
-                ]
-            })
-    },[dataChart]);
+
+        setdataChart(state=> ({
+            labels:xLabel,
+            datasets:[
+                {    
+                    label:'score',
+                    data:sample
+                }
+                     ]
+                })
+                );
+                },[name]);
        
      
         
@@ -70,7 +69,7 @@ function Linechart(props) {
 
  return (
     <div id = 'container'  className={styles.container}>
-         <Line  data={dataChart} width={100} height={50} />
+         <Line  data={dataChart} width={120} height={50} />
 
         
     </div>
@@ -78,32 +77,3 @@ function Linechart(props) {
 
 }
 export default Linechart;
-// class Linechart extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.ref = createRef;
-//         this.createLine = d3
-       
-        
-//     }
-    
-    
-//     render(){
-       
-        
-//         return (
-//         <div>wow</div>
-        
-//         )
-//     }
-// }
-
-// export default Linechart;
-
-
-        // for(let i=0;i<contentKeys.length;i++){
-        //     if(contentKeys[i]===name_string){
-
-        //        // fetchData = contentKeys[i].map((t)=>data.content[t].map((e)=>(<div>{e.score}</div>)));
-        //     }
-        // }

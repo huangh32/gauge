@@ -4,34 +4,34 @@ import {Grid, Typography, Button, Box, Card, CardContent, GridList,GridListTile,
 import styles from './PostData.module.css';
 // import * as d3 from "d3";
 import GaugeChart from 'react-gauge-chart'
+import { color } from 'd3';
 
 
 
-// export function savefunction (name) {
-//     let target = name;
-//     console.log('savefunction: ', target);
-// }
+
 
 class PostData extends React.Component {
     constructor(props) {
         super(props);
-        // this.ref = createRef();
+       
     
         this.state = {
             data: this.props.data,
             name:this.props.name,
-            score:''
+            border:''
         };
 
         
-        // this.handleChange = this.handleChange.bind(this);
+     
 
     }
 
     handleChange (newName) {
         console.log('handleChange Name: ', newName);
         console.log('handle props: ', this);
-         this.setState({name: newName});
+
+        //  this.setState({name: newName, border:'1px solid #03a9f4'});
+        
         this.props.onNameChange({name:newName});
         
     }
@@ -39,33 +39,43 @@ class PostData extends React.Component {
     
 
     render(){
-        console.log('GaugeData is: ',this.state.data);
-        console.log('render',this);
-        console.log('name: ',this.state.name);
+        // console.log('GaugeData is: ',this.state.data);
+        // console.log('render',this);
+         console.log('name: ',this.state.name);
         const that = this;//remind Not for function scope
+            console.log('after name:', that.state.name)
+
+
+
+        let focus = {
+            border: '1px solid #03a9f4'
+        }
+        
+      
+
         return (
         <Grid container spacing ={1}>
         {this.state.data.map(function(item, index) {
             return <Grid  item xs={4} spacing={3}>
-                   <Card key = {index} onClick={
+                   <Card  id = {index} key = {index} onClick={
                     //    that.handleChange.bind(this,item.name)
                     (event) => that.handleChange(item.name, event)
                    }>
-                <CardContent>
-                    <Typography color='primary' variant='h7' component='h6' gutterBottom>
-                        {item.name}
-                    </Typography>
-                    <Typography color='primary'   component='p'>
-                   <GaugeChart 
-                    id={`$gchart`+index} percent={item.score/100}
-                    textColor={'#039be5'}colors={['#e1f5fe','#b3e5fc','#29b6f6']}
-                    arcWidth={0.3} 
-                    />
-                    </Typography>
-                    <Typography color='primary'   variant='h8' component='h8'>
-                    Sample: {item.sample}
-                    </Typography>
-                </CardContent>
+                        <CardContent>
+                            <Typography color='primary' variant='h6' component='h6' gutterBottom>
+                                {item.name}
+                            </Typography>
+                            <Typography color='primary'   component='p'>
+                        <GaugeChart 
+                            id={`$gchart`+index} percent={item.score/100}
+                            textColor={'#039be5'}colors={['#e1f5fe','#b3e5fc','#29b6f6']}
+                            arcWidth={0.3} 
+                            />
+                            </Typography>
+                            <Typography color='primary'   variant='h8' component='h8'>
+                            Sample: {item.sample}
+                            </Typography>
+                        </CardContent>
                 </Card>
             </Grid>   
         })
