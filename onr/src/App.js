@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import {Grid, Typography, Button, Box, Card, CardContent, GridList,GridListTile,GridListTileBar} from '@material-ui/core';
 import LanguageIcon from '@material-ui/icons/Language';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
@@ -8,12 +8,13 @@ import InfoIcon from '@material-ui/icons/Info';
 import PostData from './PostData';
 import Linechart from'./Linechart';
 import Data from './data.json';
-import * as d3 from "d3";
+import { select } from 'd3';
 
 function App() {
   const [areadata,setData] = useState(Data.areaData);
   const [gaugeData, setgaugeData] = useState(Data.gaugeData);
   const [name,setName] = useState('');
+
  
   function handleName(name){
     setName(
@@ -22,7 +23,7 @@ function App() {
     console.log('in APP new Name is: ', name);
   };
 
- 
+
 
 
   return (
@@ -64,7 +65,9 @@ function App() {
 
 
         <Grid item xs={12} sm={7} className={styles.line}>
-          <Linechart data={areadata}  name={name} width={400} height={300} />
+          {/* <svg ref={svgRef}> */}
+          <Linechart data={areadata}  name={name}  />
+          {/* </svg> */}
         </Grid>
 
 

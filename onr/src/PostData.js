@@ -15,7 +15,7 @@ import GaugeChart from 'react-gauge-chart'
 class PostData extends React.Component {
     constructor(props) {
         super(props);
-        this.ref = createRef();
+        // this.ref = createRef();
     
         this.state = {
             data: this.props.data,
