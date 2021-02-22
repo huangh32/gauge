@@ -18,7 +18,7 @@ class PostData extends React.Component {
         this.state = {
             data: this.props.data,
             name:this.props.name,
-            border:''
+            selected:''
         };
 
         
@@ -26,15 +26,22 @@ class PostData extends React.Component {
 
     }
 
-    handleChange (newName) {
+    handleChange (newName, i) {
         console.log('handleChange Name: ', newName);
-        console.log('handle props: ', this);
-
-        //  this.setState({name: newName, border:'1px solid #03a9f4'});
+        // console.log('handle props: ', this);
+        console.log('index is: ',i);
+        this.setState({name: newName, selected:i });//for current script
         
-        this.props.onNameChange({name:newName});
+        this.props.onNameChange({name:newName});//for father script
         
     }
+
+    toggleStyles(index){
+        const isItemSelected = this.state.selected ===index;
+        return isItemSelected? '1px solid #03a9f4':'white'
+
+    }
+
 
     
 
@@ -47,7 +54,7 @@ class PostData extends React.Component {
 
 
 
-        let focus = {
+        const focus = {
             border: '1px solid #03a9f4'
         }
         
@@ -57,9 +64,9 @@ class PostData extends React.Component {
         <Grid container spacing ={1}>
         {this.state.data.map(function(item, index) {
             return <Grid  item xs={4} spacing={3}>
-                   <Card  id = {index} key = {index} onClick={
+                   <Card  style = {{}} id = {index} key = {index} onClick={
                     //    that.handleChange.bind(this,item.name)
-                    (event) => that.handleChange(item.name, event)
+                    (event) => that.handleChange(item.name, index, event)
                    }>
                         <CardContent>
                             <Typography color='primary' variant='h6' component='h6' gutterBottom>

@@ -22,7 +22,11 @@ function Linechart(props) {
                 label:'score',
                 data:[20,30,90,30]
             }
-        ]
+        ],
+        options:{
+            display:true,
+            text:'Custom areaData Chart'
+        }
     });
        
 
@@ -63,8 +67,6 @@ function Linechart(props) {
         
       
 
-
-        
     
 
  return (
