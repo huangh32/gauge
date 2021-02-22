@@ -16,17 +16,7 @@ function Linechart(props) {
    
 
       const [dataChart, setdataChart] = useState({
-        labels:['Apr','May','June','July'],
-        datasets:[
-            {    
-                label:'score',
-                data:[20,30,90,30]
-            }
-        ],
-        options:{
-            display:true,
-            text:'Custom areaData Chart'
-        }
+        
     });
        
 
