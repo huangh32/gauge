@@ -33,12 +33,12 @@
 }
 
 .table1 {
-    text-align:justify;
-    justify-content: center;
-    display:flexbox;
+    text-align:left;
+    justify-content:flex-start;
     margin-left:25%;
     padding-top: 5%;
     padding-bottom: 5%;
+    
     
 }
 

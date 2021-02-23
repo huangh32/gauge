@@ -69,17 +69,17 @@ class PostData extends React.Component {
                     (event) => that.handleChange(item.name, index, event)
                    }>
                         <CardContent>
-                            <Typography color='primary' variant='h6' component='h6' gutterBottom>
+                            <Typography color='primary' variant='h6' component='h8' >
                                 {item.name}
                             </Typography>
-                            <Typography color='primary'   component='p'>
+                            <Typography color='primary'   component='h7'>
                         <GaugeChart 
                             id={`$gchart`+index} percent={item.score/100}
                             textColor={'#039be5'}colors={['#e1f5fe','#b3e5fc','#29b6f6']}
                             arcWidth={0.3} 
                             />
                             </Typography>
-                            <Typography color='primary'   variant='h8' component='h8'>
+                            <Typography color='primary'   variant='h8' component='h7'>
                             Sample: {item.sample}
                             </Typography>
                         </CardContent>

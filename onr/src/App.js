@@ -41,8 +41,8 @@ function App() {
           <Grid item xs={12} sm={4} className={styles.smallcontainer}>Filters
           
             <Box border={1} borderRadius={10} boxShadow={3} className={styles.table1}>
-            <Grid item sm = {6} ><CheckBoxIcon style={{ fill: '#03a9f4' }}/> All CQA Results<InfoIcon /></Grid>
-            <Grid item sm = {6}><CheckBoxIcon style={{ fill: '#e1f5fe' }}/>CQAs with Closed Loop<InfoIcon /></Grid>
+            <Grid item sm = {12} ><CheckBoxIcon style={{ fill: '#03a9f4' }}/> All CQA Results<InfoIcon /></Grid>
+            <Grid item sm = {12}><CheckBoxIcon style={{ fill: '#e1f5fe' }}/>CQAs with Closed Loop<InfoIcon /></Grid>
             </Box>
           
           </Grid>
